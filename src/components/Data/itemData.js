@@ -2,7 +2,7 @@
 export const data = [
     {
         id: 0,
-        marca: "Absolut",
+        marca: "Vodkas",
         bebida: "Vodka Absolut",
         precio: 1900,
         stock: 5,
@@ -11,7 +11,7 @@ export const data = [
     },
     {
         id: 1,
-        marca: "Smirnoff",
+        marca: "Vodkas",
         bebida: "Vodka Smirnoff",
         precio: 1200,
         stock: 11,
@@ -20,7 +20,7 @@ export const data = [
     },
     {
         id: 2,
-        marca: "Sernova",
+        marca: "Vodkas",
         bebida: "Vodka Sernova",
         precio: 1000,
         stock: 18,
@@ -29,13 +29,22 @@ export const data = [
     },
     {
         id: 3,
-        marca: "Belvedere",
+        marca: "Vodkas",
         bebida: "Vodka Belvedere",
         precio: 15000,
         stock: 19,
         imagen: "https://res.cloudinary.com/dgvms5lfn/image/upload/v1660170629/BELVEDERE_xdpcpm.jpg" 
 
-    }
+    },
+    {
+        id: 4,
+        marca: "Vinostintos",
+        bebida: "Malbec",
+        precio: 8000,
+        stock: 20,
+        imagen: "https://res.cloudinary.com/dgvms5lfn/image/upload/v1660170629/BELVEDERE_xdpcpm.jpg" 
+
+    },
 ]
 
 export const getFetch = new Promise((res,rej)=>{

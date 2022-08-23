@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import ItemList from '../ItemList/ItemList'
-import { data, getFetch, getProductsByCategory } from '../Data/itemData';
+import { data, getFetch, getProductsByCategory } from '../../Data/itemData';
 import { useParams } from 'react-router-dom';
+
 
 export default function ItemListContainer() {
   //console.log(data)
@@ -29,7 +30,7 @@ export default function ItemListContainer() {
   return (
     <>
       {
-        loading ? <h4 className='text-dark text-center bg-warning '>Cargando productos...</h4> : <ItemList productos={resultado} />
+        loading ? <h4 className='text-dark text-center bg-warning '>Cargando productos...</h4>  : <ItemList productos={resultado} />
       }
 
     </>

@@ -27,11 +27,11 @@ function NavBarLogo(props) {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="m-auto navLinks ">
-              <Nav.Link as={Link} to={"/Marca/Vodkas"} className='text-warning '>Vodkas</Nav.Link>
-              <Nav.Link as={Link} to={"/Marca/Vinostintos"} className='text-warning'>Vinos tintos</Nav.Link>
-              <Nav.Link as={Link} to={"/Marca/Vinosblancos"} className='text-warning' >Vinos blancos</Nav.Link>
-              <Nav.Link as={Link} to={"/Marca/Cervezas"} className='text-warning' >Cervezas</Nav.Link>
-              <Nav.Link  as={Link} to={"/Marca/Gins"} className='text-warning' >Gins</Nav.Link>
+              <Nav.Link as={Link} to={"/category/Vodkas"} className='text-warning '>Vodkas</Nav.Link>
+              <Nav.Link as={Link} to={"/category/Vinostintos"} className='text-warning'>Vinos tintos</Nav.Link>
+              <Nav.Link as={Link} to={"/category/Vinosblancos"} className='text-warning' >Vinos blancos</Nav.Link>
+              <Nav.Link as={Link} to={"/category/Cervezas"} className='text-warning' >Cervezas</Nav.Link>
+              <Nav.Link  as={Link} to={"/category/Gins"} className='text-warning' >Gins</Nav.Link>
             </Nav>
             <CartWidget/>
             </Navbar.Collapse>

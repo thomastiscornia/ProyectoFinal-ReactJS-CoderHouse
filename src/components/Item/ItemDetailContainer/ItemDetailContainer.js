@@ -4,7 +4,8 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { getFetch } from '../Data/itemData';
+import { getFetch } from '../../Data/itemData';
+
 
 export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
@@ -13,9 +14,11 @@ export default function ItemDetailContainer() {
   const {id} = useParams();
   
   useEffect(() => {
+    AOS.init();
+    AOS.refresh();
     getFetch.then((res) =>{
       if(id){
-          setResultado(res.filter(products => products.id == id))
+          setResultado(res.find(products => products.id == id))
       }
       else setResultado(res)
     })
@@ -29,7 +32,7 @@ export default function ItemDetailContainer() {
   }, [id])
 
   return (
-    <div>
+    <div className='itemDetailContainer'>
       {
         <ItemDetail {...resultado} />
       }
