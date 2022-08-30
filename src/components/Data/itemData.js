@@ -61,7 +61,7 @@ export const getFetch = new Promise((res,rej)=>{
  export const getProductsByCategory=(categoryId)=>{
     return new Promise((res, rej)=>{
         setTimeout(()=>{
-            res(data.filter(prod=>prod.cat===categoryId))
+            res(data.filter(prod=>prod.cat==categoryId))
         },500)
     })
    } 

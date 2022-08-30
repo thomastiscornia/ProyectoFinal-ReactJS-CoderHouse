@@ -31,11 +31,11 @@ export default function Header() {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto navLinks fs-4 fw-bold ">
-                        <Nav.Link as={Link} to={"/categoria/Vodkas"} className='text-warning '>Vodkas</Nav.Link>
-                        <Nav.Link as={Link} to={"/categoria/Gins"} className='text-warning'>Gins</Nav.Link>
-                        <Nav.Link as={Link} to={"/categoria/VinosBlancos"} className='text-warning' >Vinos Blancos</Nav.Link>
-                        <Nav.Link as={Link} to={"/categoria/VinosTintos"} className='text-warning' >Vinos Tintos</Nav.Link>
-                        <Nav.Link as={Link} to={"/categoria/Cervezas"} className='text-warning' >Cervezas</Nav.Link>
+                        <Nav.Link as={Link} to={"/category/Vodkas"} className='text-warning '>Vodkas</Nav.Link>
+                        <Nav.Link as={Link} to={"/category/Gins"} className='text-warning'>Gins</Nav.Link>
+                        <Nav.Link as={Link} to={"/category/VinosBlancos"} className='text-warning' >Vinos Blancos</Nav.Link>
+                        <Nav.Link as={Link} to={"/category/VinosTintos"} className='text-warning' >Vinos Tintos</Nav.Link>
+                        <Nav.Link as={Link} to={"/category/Cervezas"} className='text-warning' >Cervezas</Nav.Link>
                     </Nav>
                     <CartWidget />
                 </Navbar.Collapse>
