@@ -1,20 +1,23 @@
 .navbar {
-    padding: 0;
-    margin: 0;
-    background-color: #7290d0e7;
+    width: 100%;
+    height: 200px;
 }
-.logoMate {
-    height: 5em;
-    width: 5em;
-    border-radius: 40%;
+.logo {
+    height: 150px;
+    width: 150px;
+    margin-left: 50px;
+}
+
+.nav-link{
+    color: black !important; 
 }
 
 .nav-link:hover {
-    background-color: #000000c5
+    color: white !important;
 }
 .button-toggler {
-    color: 	#ffc107;
+    color: 	#000000;
     height: 2em;
     width: 2em;
-    border-color: #ffc107;
+    border-color: #ffffff;
 }

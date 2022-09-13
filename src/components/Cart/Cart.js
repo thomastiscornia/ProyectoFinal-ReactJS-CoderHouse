@@ -1,62 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CartItem from "./CartItem/CartItem";
 import { useCartContext } from "../../context/CartContext";
-import './Cart.css'
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
-import { addDoc, collection, getFirestore,doc,updateDoc } from "firebase/firestore";
+import { Col, Row, Container } from "react-bootstrap";
+import Card from 'react-bootstrap/Card';
+import ModalConfirmarCompra from "../Modal/Modal";
+import { collection, getFirestore } from "firebase/firestore";
+
 
 const Cart = () => {
-    const { cart, precioFinal, LimpiarCart } = useCartContext();
-    const order = {
-        buyer: {
-            name: 'Thomas',
-            email: 'rcthomy@gmail.com',
-            phone: '1234567890',
-            address: 'Viamonte'
-        },
-        items: cart.map(producto => ({ id: producto.id, bebida: producto.bebida, precioUnitario: producto.precio, cantidad: producto.cantidad, subtotal: producto.precio * producto.cantidad })),
-        total: precioFinal(),
-    }
-
-    const emitirCompra = () => {
-        const dataBase = getFirestore();
-        const ordersCollection = collection(dataBase, 'orders');
-        addDoc(ordersCollection, order)
-            .then(({ id }) => alert(`felicitaciones, su cotizacion del viaje ha sido realizada con exito. Su numero de referencia es: ${id}`))
-        LimpiarCart()
-        cart.forEach((item)=> {
-            const itemRef = doc(dataBase, 'viajes', item.id)
-            updateDoc(itemRef, {
-                stock: item.stock - item.cantidad ,
-            })
-        })
-    } 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const { cart, precioFinal, addProducto} = useCartContext();
 
     return (
         <>
             {
                 (cart.length === 0) ?
-                    <div className="w-auto shadow-lg rounded d-flex row">
-                        <h3 className="text-dark text-center bg-warning">No hay productos en tu carrito, por favor , haga click en el boton debajo para volver al catálogo </h3>
+                    <div className="w-auto shadow-lg rounded d-flex row ">
+                        <h3 className="text-dark text-center bg-warning">No hay bebidas seleccionadas, por favor vuelva al catalogo de compra </h3>
                         <Link to={'/'}>
-                            <Button className="btn btn-info col-12">Volver al catálogo</Button>
+                            <Button className="btn btn-info col-12">Volver al catalogo</Button>
                         </Link>
                     </div>
                     :
-                    cart.map((producto) => {
-                        return (
-                            <CartItem key={producto.id} producto={producto} />
-                        )
+                    <Container fluid>
+                        <Row>
+                            <Col>
+                                {
+                                    cart.map((producto) => {
+                                        return (
+                                            <Card className="mb-3">
+                                                <CartItem key={producto.id} producto={producto} />
+                                            </Card>
 
-                    })
+                                        )
+                                    })
+                                }
+                            </Col>
+                            <Col>
+                                <Card className="cartTotal">
+                                    <div>
+                                    <h4 className=" fw-bolder text-center fs-1" >Total: ${precioFinal()}</h4>
+                                    </div>
+                                    <Button disabled={cart.length === 0} onClick={handleShow} className="btn btn-info col-12 mt-3">Checkout</Button>
+                                </Card>
+                            </Col>
+                        </Row>
+                        <ModalConfirmarCompra handleClose={handleClose} show={show} />
+                    </Container>
 
             }
-            <div className="cartTotal">
-                <h4 >Total: ${precioFinal()}</h4>
-            </div>
-
-            <Button disabled={cart.length === 0} onClick={emitirCompra} className="btn btn-info col-12">Finalizar pedido</Button>
 
         </>
     )

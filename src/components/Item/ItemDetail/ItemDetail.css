@@ -50,7 +50,7 @@
 .accordion-button:not(.collapsed) {
     color: white;
     font-weight: bold;
-    background-color: #ffc107;
+    background-color: #5400da;
 }
 .modal{
     pointer-events: none;

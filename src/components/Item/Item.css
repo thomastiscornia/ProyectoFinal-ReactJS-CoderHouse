@@ -18,7 +18,7 @@
   transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
 }
 .productItem .productTittle {
-  color:#ffc107  ;
+  color:#000000  ;
   font-weight: bold;
   font-size: 25px;
 }
